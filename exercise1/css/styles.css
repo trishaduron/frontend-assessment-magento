@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 10px;
+}
+body {
+  background-color: #fff;
+  font-size: 1.4rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+img {
+  max-width: 100%;
+}
+a {
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+}
+.center-align {
+  text-align: center;
+}
+.button-secondary {
+  padding: 15px 20px;
+  border: 3px solid #000;
+  border-radius: 50px;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+.container-fullwidth {
+  width: 100%;
+}
+.container-fullwidth .banner {
+  position: relative;
+  height: 650px;
+  max-width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/1920x650.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.container-fullwidth .banner-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+  color: #fff;
+}
+.container-fullwidth .banner-content h1 {
+  font-size: 7.5rem;
+  letter-spacing: 2px;
+}
+.container-fullwidth .banner-content .banner-subtext {
+  margin-top: 2rem;
+  font-size: 4rem;
+  letter-spacing: 3px;
+}
+.container-contentwidth {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+.card-container {
+  display: flex;
+  justify-content: space-between;
+}
+.card-layout {
+  box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.24);
+  position: relative;
+  max-width: 440px;
+  width: 100%;
+  padding: 20px 20px 85px;
+  margin: 0 20px;
+  border-radius: 6px;
+}
+.card-layout .button-secondary {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.card-image {
+  border-radius: 6px;
+}
+.card-description {
+  margin: 1.5rem 0;
+  padding: 0 1rem;
+  color: #5A5A5A;
+  font-size: 2.3rem;
+  line-height: 1.5;
+}
