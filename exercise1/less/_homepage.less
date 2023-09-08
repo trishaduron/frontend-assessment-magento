@@ -1,40 +1,36 @@
-// Mixin
+/* Copyright (C) 2023 Trisha Duron - All Rights Reserved */
+
+// Mixins
 .box-shadow() {
-    box-shadow: 0px 0px 9px 1px rgba(0,0,0,0.24);
-    -webkit-box-shadow: 0px 0px 9px 1px rgba(0,0,0,0.24);
-    -moz-box-shadow: 0px 0px 9px 1px rgba(0,0,0,0.24);
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 0 6px 0 rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 0 6px 0 rgba(0,0,0,0.15);
 }
 
+// Common styling, for all screen sizes
 .container-fullwidth {
-    width: 100%;
-
     .banner {
         position: relative;
-        height: 650px;
         max-width: 100%;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/1920x650.png"); // Added background-overlay to make the text more visible
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         background-color: rgba(0, 0, 0, 0.5);
 
-        &-content {
+        &__content {
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            width: 80%;
             text-align: center;
             color: @color-secondary;
 
             h1 {
-                font-size: 7.5rem;
                 letter-spacing: 2px;
+                font-size: 7.5rem;
             }
 
-            .banner-subtext {
-                margin-top: 2rem;
-                font-size: 4rem;
+            .banner__subtext {
                 letter-spacing: 3px;
             }
         }
@@ -43,42 +39,137 @@
 
 .container-contentwidth {
     max-width: @content-width;
-    margin: 0 auto;
-    padding: 5rem 0;
+    padding: 5rem 2rem;
+}
+
+.card-container {
+    .card {
+        border: 0;
+    }
 }
 
 .card {
+    .box-shadow();
+    position: relative;
+    max-width: 440px;
+    width: 100%;
+    border-radius: 6px;
+
+    .button-secondary {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     &-container {
         display: flex;
         justify-content: space-between;
     }
 
-    &-layout {
-        .box-shadow();
-        position: relative;
-        max-width: 440px;
-        width: 100%;
-        padding: 20px 20px 85px;
-        margin: 0 20px;
-        border-radius: 6px;
-
-        .button-secondary {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    }
-
-    &-image {
+    &__image {
         border-radius: 6px;
     }
 
-    &-description {
+    &__description {
         margin: 1.5rem 0;
         padding: 0 1rem;
         color: @color-content;
         font-size: 2.3rem;
         line-height: 1.5;
+    }
+}
+
+// Desktop and Tablet screen size
+@media (min-width: 768px) {
+    .container-fullwidth {
+        .banner {
+            height: 650px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/1920x650.png"); 
+            // Added background-overlay to make the text more visible
+    
+            &__content {
+                width: 80%;
+    
+                h1 {
+                    font-size: 7.5rem;
+                }
+    
+                .banner__subtext {
+                    margin-top: 2rem;
+                    font-size: 4rem;
+                }
+            }
+        }
+    }
+    
+    .card {
+        margin: 0 20px;
+        padding: 20px 20px 85px;
+    
+        &-container {
+            justify-content: space-between;
+        }
+    }
+}
+
+
+// Mobile screen size
+@media (max-width: 767px) {
+    .container-fullwidth {
+        .banner {
+            height: auto;
+            padding: 50%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/600x600.png"); 
+            // Added background-overlay to make the text more visible
+    
+            &__content {
+                h1 {
+                    font-size: 6.5rem;
+                }
+
+                .banner__subtext {
+                    margin-top: 1.5rem;
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+
+    .container-contentwidth {
+        .card {
+            padding: 20px 20px 65px;
+    
+            &:not(:last-child) {
+                margin-bottom: 5rem;
+            }
+    
+            &-container {
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            &__description {
+                font-size: 1.6rem;
+            }
+    
+            .button-secondary {
+                font-size: 1.5rem;
+                padding: 8px 5px;
+                max-width: 150px;
+            }
+        }
+    }
+}
+
+// Smaller Desktop size
+@media (max-width: 1265px) {
+    .card__description {
+        font-size: 1.8rem;
+    }
+
+    .button-secondary {
+        padding: 10px;
+        font-size: 1.3rem;
     }
 }

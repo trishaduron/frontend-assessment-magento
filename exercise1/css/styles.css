@@ -1,3 +1,5 @@
+/* Copyright (C) 2023 Trisha Duron - All Rights Reserved */
+/* Copyright (C) 2023 Trisha Duron - All Rights Reserved */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,77 +25,144 @@ a {
   text-align: center;
 }
 .button-secondary {
-  padding: 15px 20px;
+  padding: 10px 5px;
   border: 3px solid #000;
   border-radius: 50px;
+  color: #000;
   font-size: 1.8rem;
   text-transform: uppercase;
-  letter-spacing: 4px;
-}
-.container-fullwidth {
+  letter-spacing: 2px;
+  transition: 0.3s;
+  max-width: 180px;
   width: 100%;
 }
+.button-secondary:hover {
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+}
+/* Copyright (C) 2023 Trisha Duron - All Rights Reserved */
 .container-fullwidth .banner {
   position: relative;
-  height: 650px;
   max-width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/1920x650.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.container-fullwidth .banner-content {
+.container-fullwidth .banner__content {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
   text-align: center;
   color: #fff;
 }
-.container-fullwidth .banner-content h1 {
-  font-size: 7.5rem;
+.container-fullwidth .banner__content h1 {
   letter-spacing: 2px;
+  font-size: 7.5rem;
 }
-.container-fullwidth .banner-content .banner-subtext {
-  margin-top: 2rem;
-  font-size: 4rem;
+.container-fullwidth .banner__content .banner__subtext {
   letter-spacing: 3px;
 }
 .container-contentwidth {
   max-width: 1440px;
-  margin: 0 auto;
-  padding: 5rem 0;
+  padding: 5rem 2rem;
 }
-.card-container {
-  display: flex;
-  justify-content: space-between;
+.card-container .card {
+  border: 0;
 }
-.card-layout {
-  box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.24);
-  -webkit-box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.24);
-  -moz-box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.24);
+.card {
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.15);
   position: relative;
   max-width: 440px;
   width: 100%;
-  padding: 20px 20px 85px;
-  margin: 0 20px;
   border-radius: 6px;
 }
-.card-layout .button-secondary {
+.card .button-secondary {
   position: absolute;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
 }
-.card-image {
+.card-container {
+  display: flex;
+  justify-content: space-between;
+}
+.card__image {
   border-radius: 6px;
 }
-.card-description {
+.card__description {
   margin: 1.5rem 0;
   padding: 0 1rem;
   color: #5A5A5A;
   font-size: 2.3rem;
   line-height: 1.5;
 }
+@media (min-width: 768px) {
+  .container-fullwidth .banner {
+    height: 650px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/1920x650.png");
+  }
+  .container-fullwidth .banner__content {
+    width: 80%;
+  }
+  .container-fullwidth .banner__content h1 {
+    font-size: 7.5rem;
+  }
+  .container-fullwidth .banner__content .banner__subtext {
+    margin-top: 2rem;
+    font-size: 4rem;
+  }
+  .card {
+    margin: 0 20px;
+    padding: 20px 20px 85px;
+  }
+  .card-container {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 767px) {
+  .container-fullwidth .banner {
+    height: auto;
+    padding: 50%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/600x600.png");
+  }
+  .container-fullwidth .banner__content h1 {
+    font-size: 6.5rem;
+  }
+  .container-fullwidth .banner__content .banner__subtext {
+    margin-top: 1.5rem;
+    font-size: 2rem;
+  }
+  .container-contentwidth .card {
+    padding: 20px 20px 65px;
+  }
+  .container-contentwidth .card:not(:last-child) {
+    margin-bottom: 5rem;
+  }
+  .container-contentwidth .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container-contentwidth .card__description {
+    font-size: 1.6rem;
+  }
+  .container-contentwidth .card .button-secondary {
+    font-size: 1.5rem;
+    padding: 8px 5px;
+    max-width: 150px;
+  }
+}
+@media (max-width: 1265px) {
+  .card__description {
+    font-size: 1.8rem;
+  }
+  .button-secondary {
+    padding: 10px;
+    font-size: 1.3rem;
+  }
+}
+/* Copyright (C) 2023 Trisha Duron - All Rights Reserved */
