@@ -1,40 +1,30 @@
-Introduction
+Front-end Assessment
 ---
-Thanks for taking the time to complete this frontend technical assessment. We will be focusing on software quality (scalability, readability, maintainability, etc.) and your eye for detail. For styling, please use LESS, SASS or CSS without a UI library such as Bootstrap. For JavaScript, please use jQuery, KnockoutJS or vanilla JS. Along with following best practices, there will be bonus points for following our [coding guidelines](https://github.com/mindarc/frontend-assessment/wiki/Coding-guidelines). 
-
+This repository contains my hands-on front-end assessments. You can access the 2 exercises by opening the index.html file from the root folder. It contains the link for each exercise, you will be redirected to the page once you click.
+---
 Exercise 1
 ---
-Build a responsive page based on the designs.
+For this exercise, I used HTML for the document structure. For the styling, I used LESS preprocessor and a little bit of Bootstrap for utility classes used for layout and spacing.
 
-##### Requirements
-1. Match the designs exactly.
-2. Needs to be responsive and fluid.
+The LESS files are being compiled with the use of Grunt, which is a node task runner that can be configured to detect file changes and in the case for LESS files, it will automatically compile each changes into the CSS file.
 
-##### Designs
-* exercise1-desktop.png
-* exercise1-mobile.png
-
-##### Assets
-* Desktop banner - https://via.placeholder.com/1920x650
-* Mobile banner - https://via.placeholder.com/600x600
-* Content images - https://via.placeholder.com/400x300
+##### LESS files used and their purpose
+1. _general.less - it contains the general styling of the whole page or website. Mostly used for generic classes and global styling changes.
+2. _variables.less - it contains variable names and its values that is used althroughout the site/page. Mostly consist of values for theme colors, fonts, margins, etc. With this file, it will be easier to update the overall look of the site/page.
+3. _styles.less - this is where the less files are imported and compiled so that we will only have 1 LESS file in which the CSS file will generate.
+4. _homepage.less - it contains the specific styles used in a specific page or template. 
 
 Exercise 2
 ---
-Read the `data.json` file and display the data as tabs on desktop and an accordion on mobile.
 
-##### Requirements
-1. Display data in tabs on desktop.
-2. Display data in an accordion on mobile.
-3. Only 1 accordion/tab should be open at a time.
-4. Open the first accordion/tab on load.
-5. If the open accordion is selected, close it.
+This exercise contains my implementation for Tabs (Desktop) and Accordion (Mobile). I used the data.json file to populate the contents of the tabs/accordion. The script for fetching the values can be found in js/script.js. For the styling, I used plain CSS then a script is also added in js/script.js for the tab and accordion behavior.
 
 ###### Bonus points
-* Improve the user experience with meaningful animations/transitions.
-* Design and styling.
 * Explain why the result of `('b' + 'a' + + 'a' + 'a').toLowerCase()` is `banana`.
 
-Submission
----
-We recommend submitting your completed assessment as a forked repository. Please replace README content with instructions and relevant documentation.
+Answer:
+The result of the expression `('b' + 'a' + + 'a' + 'a').toLowerCase()` being 'banana' is due to the combination of JavaScript's type coercion and the string manipulation functions involved.
+
+`'b' + 'a'` combines two string, which should have an output of`'ba'`. Then for `'a' + + 'a'` the second 'a' is preceded by a unary `+` operator. This means that when you use the `+` operator before a string, JavaScript will try to convert it into a number. So, `'a' + + 'a'` becomes `'a' + NaN`, where `NaN` stands for "Not-a-Number." `'baNaN' + 'a'` results in `'baNaNa'`.
+Then `.toLowerCase()` is called on `'baNaNa'`, which converts the entire string to lowercase, resulting in `'banana'`.
+

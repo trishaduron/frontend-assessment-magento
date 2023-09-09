@@ -1,0 +1,134 @@
+/* Copyright (C) 2023 Trisha Duron - All Rights Reserved */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    background-color: #fff;
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tabs-accordion {
+    display: flex;
+    margin: 16px;
+    position: relative;
+}
+
+.list-item.active {
+    display: block;
+    pointer-events: none;
+}
+
+.list-item.active .list__header {
+    font-weight: 700;
+    color: black;
+}
+
+.list__content {
+    pointer-events: none;
+}
+
+.list__header {
+    padding: 10px 15px;
+    color: dimgrey;
+    text-transform: uppercase;
+}
+
+.list__header:hover {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.list__content {
+    min-height: 100%;
+    border-top: 1px solid;
+    background-color: aliceblue;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+p:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+/* Desktop */
+
+@media only screen and (min-width: 768px) {
+    .tabs-accordion {
+        flex-direction: row;
+        max-width: 80%;
+    }
+
+    .list-item:not(.active) .list__content {
+        opacity: 0;
+    }
+
+    .list-item.active .list__header {
+        border-bottom: 2px solid blueviolet;
+    }
+    
+    .list__content {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 767px) {
+    .tabs-accordion {
+        flex-direction: column;
+    }
+
+    .list-item:not(.active) .list__content {
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .list__header {
+        background-color: gainsboro;
+        transition: border 0.5s;
+    }
+
+    .list__content {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s;
+    }
+
+    .list__content p {
+        margin: 10px;
+    }
+
+    .list__content ul {
+        margin-bottom: 10px;
+    }
+
+    .list-item.active .list__header {
+        font-weight: 700;
+        color: black;
+        border-bottom: 2px solid blueviolet;
+        pointer-events: all;
+        transition: border 0.5s;
+    }
+
+    .list-item.active .list__content {
+        position: relative;
+        background-color: aliceblue;
+        width: 100%;
+        max-height: 500px;
+        transition: max-height 1s, padding 0.05s ease;
+    }
+}
