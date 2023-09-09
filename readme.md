@@ -4,7 +4,7 @@ This repository contains my hands-on front-end assessments. You can access the 2
 ---
 Exercise 1
 ---
-For this exercise, I used HTML for the document structure. For the styling, I used LESS preprocessor and a little bit of Bootstrap for utility classes used for layout and spacing.
+For this exercise, I used HTML for the document structure. For the styling, I used LESS preprocessor and a little bit of Bootstrap for utility classes used for layout and spacing as mentioned in the Coding guidelines.
 
 The LESS files are being compiled with the use of Grunt, which is a node task runner that can be configured to detect file changes and in the case for LESS files, it will automatically compile each changes into the CSS file.
 
